@@ -5,12 +5,15 @@ import teamRouter from "./Routes/teamRoutes.js";
 import taskRouter from "./Routes/taskRoutes.js";
 import { config } from "dotenv";
 import cookieParser from "cookie-parser";
+import cors from "cors"
 
 const app = express();
 
+app.use(cors())
 config({
     path:"./config.env"
 })
+
 app.use(cookieParser());
 app.use(express.json());
 connectDb()
